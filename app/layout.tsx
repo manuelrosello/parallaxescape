@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { manrope } from "./ui/fonts";
+import "./ui/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "parallax // escape",

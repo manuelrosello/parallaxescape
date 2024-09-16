@@ -1,0 +1,110 @@
+:root {
+  --layer-one: #6a2c70;
+  --layer-two: #b83b5e;
+  --layer-three: #f08a5d;
+  --layer-four: #f9ed69;
+}
+
+.pe-l1 {
+  svg {
+    fill: var(--layer-one);
+  }
+  div {
+    background-color: var(--layer-one);
+  }
+}
+
+.pe-l2 {
+  svg {
+    fill: var(--layer-two);
+  }
+  div {
+    background-color: var(--layer-two);
+  }
+}
+
+.pe-l3 {
+  svg {
+    fill: var(--layer-three);
+  }
+  div {
+    background-color: var(--layer-three);
+  }
+}
+
+.pe-bg {
+  svg {
+    fill: var(--layer-four);
+  }
+  div {
+    background-color: var(--layer-four);
+  }
+  // background-image: url(/backgrounds/bigdaddy.jpeg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: center;
+  // position: relative;
+  // overflow: hidden;
+}
+
+//   .mr-bg::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: linear-gradient(
+//       60deg,
+//       rgba(255, 0, 255, 0.3),
+//       rgba(255, 0, 0, 0.3),
+//       rgba(255, 0, 0, 0.3),
+//       rgba(255, 0, 0, 0.3),
+//       rgba(255, 0, 0, 0.3),
+//       rgba(255, 119, 0, 0.3),
+//       rgba(255, 255, 0, 0.3),
+//       rgba(0, 255, 0, 0.3),
+//       rgba(0, 255, 0, 0.3),
+//       rgba(0, 0, 255, 0.3),
+//       rgba(255, 0, 255, 0.3),
+//       rgba(255, 0, 0, 0.3),
+//       rgba(255, 0, 0, 0.3),
+//       rgba(255, 119, 0, 0.3),
+//       rgba(255, 255, 0, 0.3),
+//       rgba(0, 255, 0, 0.3),
+//       rgba(0, 255, 0, 0.3),
+//       rgba(0, 255, 0, 0.3),
+//       rgba(0, 255, 0, 0.3),
+//       rgba(0, 0, 255, 0.3)
+//     );
+//     background-size: 300% 300%;
+//     animation: hueShift 30s linear infinite;
+//     mix-blend-mode: overlay;
+//     pointer-events: none;
+//   }
+
+//   @keyframes hueShift {
+//     0% {
+//       background-position: 0% 50%;
+//     }
+//     50% {
+//       background-position: 100% 50%;
+//     }
+//     100% {
+//       background-position: 0% 50%; /* Return to the start smoothly */
+//     }
+// }
+
+/* Main content
+  .mr-main-content {
+    animation: fadeIn 10s linear;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      translateX: -100%;
+    }
+    100% {
+      translateX: 0%;
+    }
+  } */
