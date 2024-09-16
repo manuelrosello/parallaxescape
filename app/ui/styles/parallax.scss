@@ -1,3 +1,4 @@
+// Fallback
 :root {
   --layer-one: #6a2c70;
   --layer-two: #b83b5e;
@@ -6,9 +7,13 @@
   --bg: #f09f5d;
 }
 
+// Layers
 .pe-l1 {
   svg {
+    * {
     fill: var(--layer-one);
+    }
+    bottom: 24%;
   }
   div {
     background-color: var(--layer-one);
@@ -18,7 +23,10 @@
 
 .pe-l2 {
   svg {
+    * {
     fill: var(--layer-two);
+    }
+    bottom: 31.3%;
   }
   div {
     background-color: var(--layer-two);
@@ -28,7 +36,10 @@
 
 .pe-l3 {
   svg {
+    * {
     fill: var(--layer-three);
+    }
+    bottom: 49%;
   }
   div {
     background-color: var(--layer-three);
@@ -38,7 +49,10 @@
 
 .pe-l4 {
   svg {
+    * {
     fill: var(--layer-four);
+    }
+    bottom: 66.67%;
   }
   div {
     background-color: var(--layer-four);
@@ -47,15 +61,13 @@
 }
 
 .pe-bg {
-  svg {
-    fill: var(--layer-four);
-  }
   div {
     background-color: var(--bg);
     background: var(--bg);
   }
 }
 
+// Background "aurora" effect
 .pe-bg::before {
   content: "";
   position: absolute;

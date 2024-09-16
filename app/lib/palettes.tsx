@@ -1,3 +1,4 @@
+/** Custom palette object */
 export type Palette = {
   "--layer-one": string;
   "--layer-two": string;
@@ -6,6 +7,11 @@ export type Palette = {
   "--bg": string;
 };
 
+/**
+ * Palette selection
+ * 
+ * Shout-out to https://colorhunt.co/
+ */
 export const palettes: Record<string, Palette> = {
   sunset: {
     "--layer-one": "#6A2C70",

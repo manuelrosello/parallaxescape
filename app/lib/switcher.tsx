@@ -1,8 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { palettes } from "./palettes";
 
+/**
+ * Shows the available palettes and applies them
+ * 
+ * Latest selection is recorded in local storage
+ */
 export default function PaletteSwitcher() {
   const defaultPalette = Object.keys(palettes)[0] || "sunset";
   const [currentPalette, setCurrentPalette] = useState(() => {
@@ -22,12 +28,22 @@ export default function PaletteSwitcher() {
   }, [currentPalette, defaultPalette]);
 
   return (
-    <div className="flex flex-row gap-10 px-1">
-      {Object.keys(palettes).map((p) => (
-        <button key={p} onClick={() => setCurrentPalette(p)}>
-          {p}
-        </button>
-      ))}
+    <div className="flex flex-row justify-between px-1 tracking-widest flex-wrap">
+      <div className="flex flex-row gap-x-10 flex-wrap">
+        {Object.keys(palettes).map((p) => (
+          <button key={p} onClick={() => setCurrentPalette(p)}>
+            {p}
+          </button>
+        ))}
+      </div>
+      <Link
+        className="flex justify-self-end"
+        href="https://www.manuelrosello.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        manuel // rosello
+      </Link>
     </div>
   );
 }
