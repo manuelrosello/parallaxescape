@@ -12,17 +12,17 @@ export default function PaletteSwitcher() {
   // Apply the selected palette to the document's root and save it to local storage
   useEffect(() => {
     const root = document.documentElement;
-    const palette = palettes[currentPalette];
+    const palette = palettes[currentPalette] || defaultPalette;
 
     for (const [key, value] of Object.entries(palette)) {
       root.style.setProperty(key, value);
     }
 
     localStorage.setItem("palette", currentPalette);
-  }, [currentPalette]);
+  }, [currentPalette, defaultPalette]);
 
   return (
-    <div className="flex flex-row gap-10">
+    <div className="flex flex-row gap-10 px-1">
       {Object.keys(palettes).map((p) => (
         <button key={p} onClick={() => setCurrentPalette(p)}>
           {p}

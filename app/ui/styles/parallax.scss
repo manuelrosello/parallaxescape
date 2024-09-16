@@ -1,8 +1,9 @@
 :root {
   --layer-one: #6a2c70;
   --layer-two: #b83b5e;
-  --layer-three: #f08a5d;
+  --layer-three: #f09f5d;
   --layer-four: #f9ed69;
+  --bg: #f09f5d;
 }
 
 .pe-l1 {
@@ -35,7 +36,7 @@
   }
 }
 
-.pe-bg {
+.pe-l4 {
   svg {
     fill: var(--layer-four);
   }
@@ -43,12 +44,16 @@
     background-color: var(--layer-four);
     background: var(--layer-four);
   }
-  // background-image: url(/backgrounds/bigdaddy.jpeg);
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-position: center;
-  // position: relative;
-  // overflow: hidden;
+}
+
+.pe-bg {
+  svg {
+    fill: var(--layer-four);
+  }
+  div {
+    background-color: var(--bg);
+    background: var(--bg);
+  }
 }
 
 .pe-bg::before {
@@ -99,17 +104,3 @@
     background-position: 0% 50%; /* Return to the start smoothly */
   }
 }
-
-/* Main content
-  .mr-main-content {
-    animation: fadeIn 10s linear;
-  }
-  
-  @keyframes fadeIn {
-    0% {
-      translateX: -100%;
-    }
-    100% {
-      translateX: 0%;
-    }
-  } */
