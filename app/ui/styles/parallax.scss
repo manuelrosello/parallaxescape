@@ -11,6 +11,7 @@
   }
   div {
     background-color: var(--layer-one);
+    background: var(--layer-one);
   }
 }
 
@@ -20,6 +21,7 @@
   }
   div {
     background-color: var(--layer-two);
+    background: var(--layer-two);
   }
 }
 
@@ -29,6 +31,7 @@
   }
   div {
     background-color: var(--layer-three);
+    background: var(--layer-three);
   }
 }
 
@@ -38,6 +41,7 @@
   }
   div {
     background-color: var(--layer-four);
+    background: var(--layer-four);
   }
   // background-image: url(/backgrounds/bigdaddy.jpeg);
   // background-repeat: no-repeat;
@@ -47,53 +51,54 @@
   // overflow: hidden;
 }
 
-//   .mr-bg::before {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     background: linear-gradient(
-//       60deg,
-//       rgba(255, 0, 255, 0.3),
-//       rgba(255, 0, 0, 0.3),
-//       rgba(255, 0, 0, 0.3),
-//       rgba(255, 0, 0, 0.3),
-//       rgba(255, 0, 0, 0.3),
-//       rgba(255, 119, 0, 0.3),
-//       rgba(255, 255, 0, 0.3),
-//       rgba(0, 255, 0, 0.3),
-//       rgba(0, 255, 0, 0.3),
-//       rgba(0, 0, 255, 0.3),
-//       rgba(255, 0, 255, 0.3),
-//       rgba(255, 0, 0, 0.3),
-//       rgba(255, 0, 0, 0.3),
-//       rgba(255, 119, 0, 0.3),
-//       rgba(255, 255, 0, 0.3),
-//       rgba(0, 255, 0, 0.3),
-//       rgba(0, 255, 0, 0.3),
-//       rgba(0, 255, 0, 0.3),
-//       rgba(0, 255, 0, 0.3),
-//       rgba(0, 0, 255, 0.3)
-//     );
-//     background-size: 300% 300%;
-//     animation: hueShift 30s linear infinite;
-//     mix-blend-mode: overlay;
-//     pointer-events: none;
-//   }
+.pe-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 0, 255, 0.5),
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 119, 0, 0.5),
+    rgba(255, 255, 0, 0.5),
+    rgba(0, 255, 0, 0.5),
+    rgba(0, 255, 0, 0.5),
+    rgba(0, 0, 255, 0.5),
+    rgba(255, 0, 255, 0.5),
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 0, 0, 0.5),
+    rgba(255, 119, 0, 0.5),
+    rgba(255, 255, 0, 0.5),
+    rgba(0, 255, 0, 0.5),
+    rgba(0, 255, 0, 0.5),
+    rgba(0, 255, 0, 0.5),
+    rgba(0, 255, 0, 0.5),
+    rgba(0, 0, 255, 0.5)
+  );
+  background-size: 300% 300%;
+  animation: hueShift 30s linear infinite;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index:10;
+}
 
-//   @keyframes hueShift {
-//     0% {
-//       background-position: 0% 50%;
-//     }
-//     50% {
-//       background-position: 100% 50%;
-//     }
-//     100% {
-//       background-position: 0% 50%; /* Return to the start smoothly */
-//     }
-// }
+@keyframes hueShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%; /* Return to the start smoothly */
+  }
+}
 
 /* Main content
   .mr-main-content {
