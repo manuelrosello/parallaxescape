@@ -1,17 +1,13 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
 import { palettes } from "./palettes";
 
 export default function PaletteSwitcher() {
   const defaultPalette = Object.keys(palettes)[0] || "sunset";
-  const [currentPalette, setCurrentPalette] = useState(defaultPalette);
-
-  // Load the saved palette from local storage when the component mounts
-  useEffect(() => {
-    const savedPalette = localStorage.getItem("palette") || defaultPalette;
-    setCurrentPalette(savedPalette);
-  }, [defaultPalette]);
+  const [currentPalette, setCurrentPalette] = useState(() => {
+    return localStorage.getItem("palette") || defaultPalette;
+  });
 
   // Apply the selected palette to the document's root and save it to local storage
   useEffect(() => {
