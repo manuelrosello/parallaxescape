@@ -39,7 +39,8 @@ export default function PaletteSwitcher() {
       </div>
       <Link
         className="pe-website-link flex justify-self-end"
-        href="https://www.manuelrosello.com"
+        // href="https://www.manuelrosello.com"
+        href="https://manuelrosello.vercel.app/"
         target="_blank"
         rel="noopener noreferrer"
       >
