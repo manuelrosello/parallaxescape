@@ -4,18 +4,29 @@ import Tree from "@/app/lib/sceneryElements/tree.svg";
 import Grass from "@/app/lib/sceneryElements/grass.svg";
 import React from "react";
 
+/**
+ * Item object
+ */
 type SceneryItem = {
-  type: any,
-  scale?: number,
-}
-
-const availableItems: Record<number, SceneryItem[]> = {
-  1: [{type: Tree}, {type: Grass, scale: 0.2}],
-  2: [{type: Tree}, {type: BigTree}, {type: Grass, scale: 0.2}],
-  3: [{type: Mountains}],
-  4: [{type: Mountains}],
+  type: any;
+  scale?: number;
 };
 
+/**
+ * To be improved (!)
+ *
+ * Dictionary of available renders for each layer
+ */
+const availableItems: Record<number, SceneryItem[]> = {
+  1: [{ type: Tree }, { type: Grass, scale: 0.2 }],
+  2: [{ type: Tree }, { type: BigTree }, { type: Grass, scale: 0.2 }],
+  3: [{ type: Mountains }],
+  4: [{ type: Mountains }],
+};
+
+/**
+ * Minimum and maximum height values (%) for the elements of each layer
+ */
 const heightRanges = {
   1: { min: 20, max: 45 },
   2: { min: 10, max: 30 },
@@ -23,67 +34,82 @@ const heightRanges = {
   4: { min: 20, max: 80 },
 };
 
+/**
+ * Obtains a random number within a range
+ *
+ * @param min minimum value
+ * @param max maximum value
+ * @returns Random integer within the given range
+ */
 const getRandom = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min) + min);
 
-export const generateElements = (layer: 1 | 2 | 3 | 4, numElements: number) => {
+/**
+ * Generates a given number of random elements for a specific parallax layer
+ *
+ * @param layer Layer number (1 to 4)
+ * @param numElements Amount of elements to be generated
+ * @param section First or second section of the infinite scroll
+ * @param elements Current element array
+ * @returns Element array with the new items appended
+ */
+export const generateElementsInSection = (
+  layer: 1 | 2 | 3 | 4,
+  numElements: number,
+  section: "first" | "second",
+  elements: JSX.Element[]
+) => {
   const elementSet = availableItems[layer];
-  const elements: JSX.Element[] = [];
-  const positions1: number[] = [];
-  const positions2: number[] = [];
+
+  const positions: number[] = [];
 
   for (let i = 0; i < numElements; i++) {
-    const element1 = elementSet[getRandom(0, elementSet.length)];
-    const SceneryElement1 = element1.type;
-    const scale1 = element1.scale || 1;
-    const element2 = elementSet[getRandom(0, elementSet.length)];
-    const SceneryElement2 = element2.type;
-    const scale2 = element2.scale || 1;
+    const element = elementSet[getRandom(0, elementSet.length)];
+    const SceneryElement = element.type;
 
+    const scale1 = element.scale || 1;
     const heightRange = heightRanges[layer];
-
-    const height1 = getRandom(heightRange.min, heightRange.max) * scale1;
-    const height2 = getRandom(heightRange.min, heightRange.max) * scale2;
+    const height = getRandom(heightRange.min, heightRange.max) * scale1;
 
     const lowerBound = i * (100 / numElements);
     const upperBound = (i + 1) * (100 / numElements);
     let displacementCandidate = getRandom(lowerBound, upperBound);
-    while (positions1.find((p) => Math.abs(p - displacementCandidate) < ((100 / numElements) / 2))) {
+    while (
+      positions.find(
+        (p) => Math.abs(p - displacementCandidate) < 100 / numElements / 2
+      )
+    ) {
       displacementCandidate = getRandom(lowerBound, upperBound);
     }
-    const displacement1 = displacementCandidate;
-    positions1.push(displacement1);
-
-    displacementCandidate = getRandom(lowerBound, upperBound);
-    while (positions2.find((p) => Math.abs(p - displacementCandidate) < ((100 / numElements) / 2))) {
-      displacementCandidate = getRandom(lowerBound, upperBound);
-    }
-    const displacement2 = displacementCandidate;
-    positions2.push(displacement1);
+    const displacement = displacementCandidate;
+    positions.push(displacement);
 
     elements.push(
-      <SceneryElement1
-      key={`layer${layer}-el${i + 1}-first`}
-        className="parallax-element pe-layer-first"
+      <SceneryElement
+        key={`layer${layer}-el${i + 1}-${section}`}
+        className={`parallax-element pe-layer-${section}`}
         style={{
-          height: height1 + "vh",
-          marginLeft: displacement1 + "%"
+          height: height + "vh",
+          marginLeft: displacement + "%",
         }}
-      ></SceneryElement1>
+      ></SceneryElement>
     );
-
-    elements.push(
-      <SceneryElement2
-        key={`layer${layer}-el${i + 1}-second`}
-        className="parallax-element pe-layer-second"
-        style={{
-          height: height2 + "vh",
-          marginLeft: displacement2 + "%"
-        }}
-      ></SceneryElement2>
-    );
-
   }
+
+  return elements;
+};
+
+/**
+ * Generates a given number of random elements for a specific parallax layer
+ *
+ * @param layer Layer number (1 to 4)
+ * @param numElements Amount of elements to be generated
+ * @returns JSX elements for the DOM
+ */
+export const generateElements = (layer: 1 | 2 | 3 | 4, numElements: number) => {
+  let elements: JSX.Element[] = [];
+  elements = generateElementsInSection(layer, numElements, "first", elements);
+  elements = generateElementsInSection(layer, numElements, "second", elements);
 
   return elements;
 };
