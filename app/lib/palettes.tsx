@@ -20,13 +20,6 @@ export const palettes: Record<string, Palette> = {
     "--layer-four": "#F9ED69",
     "--bg": "#EC8686",
   },
-  midnight: {
-    "--layer-one": "#070F2B",
-    "--layer-two": "#1B1A55",
-    "--layer-three": "#535C91",
-    "--layer-four": "#9290C3",
-    "--bg": "#9290C3",
-  },
   polar: {
     "--layer-one": "#1B262C",
     "--layer-two": "#0F4C75",
@@ -41,14 +34,21 @@ export const palettes: Record<string, Palette> = {
     "--layer-four": "#FFF3C7",
     "--bg": "#F8B0D8",
   },
-  forest: {
+  trail: {
     "--layer-one": "#092635",
     "--layer-two": "#1B4242",
     "--layer-three": "#5C8374",
     "--layer-four": "#9EC8B9",
     "--bg": "#9EC8B9",
   },
-  dreamland: {
+  ember: {
+    "--layer-one": "#355C7D",
+    "--layer-two": "#6C5B7B",
+    "--layer-three": "#C06C84",
+    "--layer-four": "#F67280",
+    "--bg": "#F67280",
+  },
+  dreamy: {
     "--layer-one": "#8E7AB5",
     "--layer-two": "#B784B7",
     "--layer-three": "#E493B3",

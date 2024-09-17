@@ -6,7 +6,7 @@ import { palettes } from "./palettes";
 
 /**
  * Shows the available palettes and applies them
- * 
+ *
  * Latest selection is recorded in local storage
  */
 export default function PaletteSwitcher() {
@@ -28,7 +28,10 @@ export default function PaletteSwitcher() {
   }, [currentPalette, defaultPalette]);
 
   return (
-    <div className="flex flex-row justify-between px-1 tracking-widest flex-wrap">
+    <div
+      className="flex flex-row justify-between px-1 tracking-widest flex-wrap absolute w-full z-50"
+      style={{ background: "black" }}
+    >
       <div className="flex flex-row gap-x-10 flex-wrap">
         {Object.keys(palettes).map((p) => (
           <button key={p} onClick={() => setCurrentPalette(p)}>

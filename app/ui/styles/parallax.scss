@@ -1,3 +1,5 @@
+$longest-duration: 90s;
+
 // Fallback
 :root {
   --layer-one: #6a2c70;
@@ -5,26 +7,79 @@
   --layer-three: #f09f5d;
   --layer-four: #f9ed69;
   --bg: #f09f5d;
+
+  x: #3282B8;
+  y: #8782ff;
 }
 
 // Layers
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh; /* or desired height */
+}
+
+.pe-layer {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  top: 0;
+  display: flex;
+}
+
+.pe-layer-base {
+  position: absolute;
+  overflow: hidden;
+  bottom: 0px;
+  width: 100%;
+  left: 0%;
+}
+
+@keyframes scroll {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -150%;
+  }
+}
+
+.parallax-element {
+  position: absolute;
+  /* Add necessary styles like width, height, background color, etc. */
+}
+
 .pe-l1 {
+  z-index: 40;
   svg {
     * {
-    fill: var(--layer-one);
+      fill: var(--layer-one);
     }
-    bottom: 24%;
+    bottom: 23%;
   }
   div {
     background-color: var(--layer-one);
     background: var(--layer-one);
   }
+
+  .pe-layer-first {
+    display: flex;
+    animation: scroll calc($longest-duration / 16) linear infinite;
+    animation-delay: calc(-1 * $longest-duration / 32);
+  }
+  
+  .pe-layer-second {
+    animation: scroll calc($longest-duration / 16) linear infinite;
+  }
 }
 
 .pe-l2 {
+  z-index: 30;
   svg {
     * {
-    fill: var(--layer-two);
+      fill: var(--layer-two);
     }
     bottom: 31.3%;
   }
@@ -32,43 +87,109 @@
     background-color: var(--layer-two);
     background: var(--layer-two);
   }
+
+  .pe-layer-first {
+    display: flex;
+    animation: scroll calc($longest-duration / 8) linear infinite;
+    animation-delay: calc(-1 * $longest-duration / 16);
+  }
+  
+  .pe-layer-second {
+    animation: scroll calc($longest-duration / 8) linear infinite;
+  }
 }
 
 .pe-l3 {
+  z-index: 20;
+
   svg {
     * {
-    fill: var(--layer-three);
+      fill: var(--layer-three);
     }
-    bottom: 49%;
+    bottom: 33%;
   }
   div {
     background-color: var(--layer-three);
     background: var(--layer-three);
   }
+
+  .pe-layer-first {
+    display: flex;
+    animation: scroll calc($longest-duration / 4) linear infinite;
+    animation-delay: calc(-1 * $longest-duration / 8);
+  }
+  
+  .pe-layer-second {
+    animation: scroll calc($longest-duration / 4) linear infinite;
+  }
 }
 
 .pe-l4 {
+  z-index: 10;
+
   svg {
     * {
-    fill: var(--layer-four);
+      fill: var(--layer-four);
     }
-    bottom: 66.67%;
+    bottom: 33%;
   }
   div {
     background-color: var(--layer-four);
     background: var(--layer-four);
   }
-}
 
-.pe-bg {
-  div {
-    background-color: var(--bg);
-    background: var(--bg);
+  .pe-layer-first {
+    display: flex;
+    animation: scroll $longest-duration linear infinite;
+    animation-delay: calc(-1 * $longest-duration / 2);
+  }
+  
+  .pe-layer-second {
+    animation: scroll $longest-duration linear infinite;
   }
 }
 
-// Background "aurora" effect
-.pe-bg::before {
+// Background
+.pe-bg {  
+  rotate: 300deg;
+  height: 100vh;
+  width: 100vw;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    background-color: var(--bg);
+    background: var(--bg);
+    height: 300%;
+    width: 300%;
+    position: absolute;
+    display: flex;
+  }
+
+  .pe-bg-1 {
+    animation: scrollBg calc($longest-duration / 2) linear infinite;
+    animation-delay: calc(-1 * $longest-duration / 4);
+  }
+
+  .pe-bg-2 {
+    animation: scrollBg calc($longest-duration / 2) linear infinite;
+  }
+}
+
+@keyframes scrollBg {
+  0% {
+    left: 300%;
+  }
+  100% {
+    left: -300%;
+  }
+}
+
+// Background "aurora" filter
+.pe-bg .pe-bg-1::before,
+.pe-bg .pe-bg-2::before
+ {
   content: "";
   position: absolute;
   top: 0;
@@ -76,7 +197,7 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(
-    60deg,
+    to left,
     rgba(255, 0, 255, 0.5),
     rgba(255, 0, 0, 0.5),
     rgba(255, 0, 0, 0.5),
@@ -96,23 +217,12 @@
     rgba(0, 255, 0, 0.5),
     rgba(0, 255, 0, 0.5),
     rgba(0, 255, 0, 0.5),
-    rgba(0, 0, 255, 0.5)
+    rgba(0, 0, 255, 0.5),
+    rgba(0, 0, 255, 0.5),
+    rgba(255, 0, 255, 0.5),
+    rgba(255, 0, 255, 0.5)
   );
-  background-size: 300% 300%;
-  animation: hueShift 30s linear infinite;
   mix-blend-mode: overlay;
   pointer-events: none;
-  z-index:10;
-}
-
-@keyframes hueShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%; /* Return to the start smoothly */
-  }
+  z-index: 10;
 }
