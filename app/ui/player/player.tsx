@@ -2,6 +2,9 @@ import "@/app/ui/styles/player.scss";
 import { MusicalNoteIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
+/**
+ * Embedded Spotify player
+ */
 export default function Player() {
   const [visible, setVisible] = useState(false);
 
