@@ -5,7 +5,7 @@ import "./ui/styles/globals.css";
 export const metadata: Metadata = {
   title: "parallax // escape",
   description: "a comfy place by manuel rosello",
-  keywords: ["parallax", "escape", "comfy", "vibes"],
+  keywords: ["parallax", "escape", "relax", "comfy", "vibes", "chillhop"],
 };
 
 export default function RootLayout({
