@@ -11,13 +11,13 @@ export default function Parallax() {
       <PaletteSwitcher></PaletteSwitcher>
       <div className="parallax-container">
         <div className="pe-layer pe-l1">
-          {generateElements(1, 2).map((el) => (
+          {generateElements(1, 4).map((el) => (
             <React.Fragment key={el.key}>{el}</React.Fragment>
           ))}
           <div className="pe-layer-base h-1/4"></div>
         </div>
         <div className="pe-layer pe-l2">
-          {generateElements(2, 4).map((el) => (
+          {generateElements(2, 8).map((el) => (
             <React.Fragment key={el.key}>{el}</React.Fragment>
           ))}
           <div className="pe-layer-base h-1/3"></div>

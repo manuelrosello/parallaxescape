@@ -1,21 +1,25 @@
 import BigTree from "@/app/lib/sceneryElements/bigTree.svg";
 import Mountains from "@/app/lib/sceneryElements/mountains.svg";
 import Tree from "@/app/lib/sceneryElements/tree.svg";
+import Grass from "@/app/lib/sceneryElements/grass.svg";
 import React from "react";
 
-const availableItems = {
-  1: [Tree],
-  2: [Tree, BigTree],
-  3: [Mountains],
-  4: [Mountains],
+type SceneryItem = {
+  type: any,
+  scale?: number,
+}
+
+const availableItems: Record<number, SceneryItem[]> = {
+  1: [{type: Tree}, {type: Grass, scale: 0.2}],
+  2: [{type: Tree}, {type: BigTree}, {type: Grass, scale: 0.2}],
+  3: [{type: Mountains}],
+  4: [{type: Mountains}],
 };
 
 const heightRanges = {
-  1: { min: 25, max: 45 },
-  2: { min: 20, max: 40 },
-  // 3: { min: 15, max: 35 },
+  1: { min: 20, max: 45 },
+  2: { min: 10, max: 30 },
   3: { min: 10, max: 40 },
-  // 4: { min: 10, max: 30 },
   4: { min: 20, max: 80 },
 };
 
@@ -29,12 +33,17 @@ export const generateElements = (layer: 1 | 2 | 3 | 4, numElements: number) => {
   const positions2: number[] = [];
 
   for (let i = 0; i < numElements; i++) {
-    const SceneryElement1 = elementSet[getRandom(0, elementSet.length)];
-    const SceneryElement2 = elementSet[getRandom(0, elementSet.length)];
+    const element1 = elementSet[getRandom(0, elementSet.length)];
+    const SceneryElement1 = element1.type;
+    const scale1 = element1.scale || 1;
+    const element2 = elementSet[getRandom(0, elementSet.length)];
+    const SceneryElement2 = element2.type;
+    const scale2 = element2.scale || 1;
+
     const heightRange = heightRanges[layer];
 
-    const height1 = getRandom(heightRange.min, heightRange.max);
-    const height2 = getRandom(heightRange.min, heightRange.max);
+    const height1 = getRandom(heightRange.min, heightRange.max) * scale1;
+    const height2 = getRandom(heightRange.min, heightRange.max) * scale2;
 
     const lowerBound = i * (100 / numElements);
     const upperBound = (i + 1) * (100 / numElements);
@@ -74,7 +83,6 @@ export const generateElements = (layer: 1 | 2 | 3 | 4, numElements: number) => {
       ></SceneryElement2>
     );
 
-    console.log("Layer: ", layer, " Item: ", i, " Margin:", displacement1);
   }
 
   return elements;
