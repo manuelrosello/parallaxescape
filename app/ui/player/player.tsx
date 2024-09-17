@@ -1,3 +1,4 @@
+import "@/app/ui/styles/player.scss";
 import { MusicalNoteIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
@@ -6,7 +7,7 @@ export default function Player() {
 
   return (
     <div className="flex flex-col gap-5 absolute p-4 right-0 top-[24px] z-50 items-end">
-      <button onClick={() => setVisible(!visible)}>
+      <button className="pe-player-button" onClick={() => setVisible(!visible)}>
         <MusicalNoteIcon className="w-6 [&>path]:stroke-[0.5]"></MusicalNoteIcon>
       </button>
 

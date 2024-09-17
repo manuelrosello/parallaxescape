@@ -1,5 +1,6 @@
 "use client";
 
+import "@/app/ui/styles/switcher.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { palettes } from "./palettes";
@@ -28,11 +29,8 @@ export default function PaletteSwitcher() {
   }, [currentPalette, defaultPalette]);
 
   return (
-    <div
-      className="flex flex-row justify-between px-1 tracking-widest flex-wrap absolute w-full z-50"
-      style={{ background: "black" }}
-    >
-      <div className="flex flex-row gap-x-10 flex-wrap">
+    <div className="pe-switcher-container flex flex-row justify-between px-1 tracking-widest flex-wrap absolute w-full z-50">
+      <div className="pe-switcher-palettes flex flex-row gap-x-10 flex-wrap">
         {Object.keys(palettes).map((p) => (
           <button key={p} onClick={() => setCurrentPalette(p)}>
             {p}
@@ -40,7 +38,7 @@ export default function PaletteSwitcher() {
         ))}
       </div>
       <Link
-        className="flex justify-self-end"
+        className="pe-website-link flex justify-self-end"
         href="https://www.manuelrosello.com"
         target="_blank"
         rel="noopener noreferrer"
