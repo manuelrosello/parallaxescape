@@ -29,10 +29,14 @@ export default function PaletteSwitcher() {
   }, [currentPalette, defaultPalette]);
 
   return (
-    <div className="pe-switcher-container flex flex-row justify-between px-1 tracking-widest flex-wrap absolute w-full z-50">
+    <div className="pe-switcher-container flex flex-row justify-between px-1 tracking-widest flex-wrap absolute w-screen z-50">
       <div className="pe-switcher-palettes flex flex-row gap-x-10 flex-wrap">
         {Object.keys(palettes).map((p) => (
-          <button key={p} onClick={() => setCurrentPalette(p)}>
+          <button
+            aria-label="toggle spotify player"
+            key={p}
+            onClick={() => setCurrentPalette(p)}
+          >
             {p}
           </button>
         ))}

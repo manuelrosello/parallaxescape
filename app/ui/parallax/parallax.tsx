@@ -1,7 +1,7 @@
 import { generateElements } from "@/app/lib/scenery-utils";
 import PaletteSwitcher from "@/app/lib/switcher";
 import React from "react";
-import Player from "../player/player";
+import ActionBar from "../actionbar/actionbar";
 
 /**
  * Creates a parallax effect by overlapping several element layers
@@ -10,7 +10,7 @@ export default function Parallax() {
   return (
     <>
       <PaletteSwitcher></PaletteSwitcher>
-      <Player></Player>
+      <ActionBar></ActionBar>
       <div className="parallax-container">
         <div className="pe-layer pe-l1">
           {generateElements(1, 4).map((el) => (
