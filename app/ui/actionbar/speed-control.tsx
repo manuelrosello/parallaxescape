@@ -6,8 +6,8 @@ import { GiTurtle, GiRabbit, GiSnail } from "react-icons/gi";
  */
 export const speedValues: Record<string, number> = {
   default: 90,
-  slow: 180,
-  extraSlow: 360,
+  slow: 360,
+  extraSlow: 1440,
 };
 
 /**
