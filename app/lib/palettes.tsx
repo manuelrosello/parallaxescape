@@ -55,4 +55,11 @@ export const palettes: Record<string, Palette> = {
     "--layer-four": "#EEA5A6",
     "--bg": "#E493B3",
   },
+  midnight: {
+    "--layer-one": "#070F2B",
+    "--layer-two": "#150050",
+    "--layer-three": "#3F0071",
+    "--layer-four": "#610094",
+    "--bg": "#940B92",
+  }
 };

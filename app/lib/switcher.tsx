@@ -64,7 +64,7 @@ export default function PaletteSwitcher() {
     <div className="pe-switcher-container flex flex-row justify-between px-1 tracking-widest flex-wrap absolute w-screen z-50">
       <div
         ref={dropdownRef}
-        className="relative flex flex-row items-center gap-x-10 flex-wrap"
+        className="relative flex flex-row items-center flex-wrap"
       >
         {/* Dropdown button for small screens */}
         <button className="block md:hidden" onClick={toggleDropdown}>
