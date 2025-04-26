@@ -15,12 +15,12 @@ export const speedValues: Record<string, number> = {
  */
 export default function SpeedControl() {
   const [currentSpeed, setCurrentSpeed] = useState(() => {
-    return localStorage.getItem("speed") || "default";
+    return localStorage.getItem("speed") || "slow";
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    const speed = speedValues[currentSpeed] || speedValues["default"];
+    const speed = speedValues[currentSpeed] || speedValues["slow"];
 
     root.style.setProperty("--speed", `${speed}s`);
     localStorage.setItem("speed", currentSpeed);
