@@ -28,7 +28,7 @@ export default function PaletteSwitcher() {
   // Apply the selected palette to the document's root and save it to local storage
   useEffect(() => {
     const root = document.documentElement;
-    const palette = palettes[currentPalette] || defaultPalette;
+    const palette = palettes[currentPalette] ?? palettes[defaultPalette];
 
     for (const [key, value] of Object.entries(palette)) {
       root.style.setProperty(key, value);

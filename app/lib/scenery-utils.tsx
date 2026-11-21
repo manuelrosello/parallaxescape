@@ -57,7 +57,7 @@ export const generateElementsInSection = (
   layer: 1 | 2 | 3 | 4,
   numElements: number,
   section: "first" | "second",
-  elements: JSX.Element[]
+  elements: React.JSX.Element[]
 ) => {
   const elementSet = availableItems[layer];
 
@@ -107,7 +107,7 @@ export const generateElementsInSection = (
  * @returns JSX elements for the DOM
  */
 export const generateElements = (layer: 1 | 2 | 3 | 4, numElements: number) => {
-  let elements: JSX.Element[] = [];
+  let elements: React.JSX.Element[] = [];
   elements = generateElementsInSection(layer, numElements, "first", elements);
   elements = generateElementsInSection(layer, numElements, "second", elements);
 

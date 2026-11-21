@@ -1,17 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Loader from "./ui/parallax/loader";
-import Parallax from "./ui/parallax/parallax";
 import "./ui/styles/parallax.scss";
 
+// The scenery is random and reads localStorage, so it only renders in the browser
+const Parallax = dynamic(() => import("./ui/parallax/parallax"), {
+  ssr: false,
+  loading: () => <Loader />,
+});
+
 export default function Home() {
-  const [content, setContent] = useState(<Loader></Loader>);
-  useEffect(() => {
-    // Wait until browser detection
-    if (typeof window !== "undefined") {
-      setContent(<Parallax></Parallax>);
-    }
-  }, []);
-  return content;
+  return <Parallax />;
 }
