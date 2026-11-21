@@ -6,7 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "autoprefixer": "10.7.0",
@@ -18,11 +18,12 @@
     "tailwindcss": "3.4.19"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "eslint": "^8.57.1",
+    "eslint": "^9.39.5",
     "eslint-config-next": "^15.5.29",
     "sass": "^1.108.2",
     "typescript": "^6.0.3"
